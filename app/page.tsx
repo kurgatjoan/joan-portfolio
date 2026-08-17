@@ -364,9 +364,10 @@ export default function Home() {
             </p>
 
             <h1 className="max-w-5xl text-5xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-6xl md:text-7xl lg:text-[82px]">
-              I turn data into useful products,
-              <span className="text-blue-600"> insights </span>
-              and decisions.
+              I turn data into 
+              <span className="text-blue-600"> products, insights  </span>
+              and <span className="text-blue-600"> decisions  </span>
+              
             </h1>
 
             <p className="mt-8 max-w-3xl text-lg leading-8 text-neutral-600 md:text-xl">
