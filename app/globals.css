@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f7f5;
-  --foreground: #161616;
+  --background: #ffffff;
+  --foreground: #111111;
 }
 
 html {
@@ -31,5 +31,5 @@ body {
 }
 
 .nav-link:hover {
-  color: #161616;
+  color: #2563eb;
 }
