@@ -1056,7 +1056,7 @@ export default function Home() {
                     href="https://www.linkedin.com/in/joan-kurgat-90b878250/"
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:underline flex items-center justify-end"
+                    className="hover:underline flex items-center justify-start lg:justify-end"
                   >
                     LinkedIn 
                     <ExternalLink className="ml-2 h-4 w-4" />
