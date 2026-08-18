@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Menu, X, ExternalLink  } from "lucide-react";
 import { useMemo, useState } from "react";
 
 type ProjectCategory = "all" | "data" | "ai" | "software";
@@ -45,22 +46,16 @@ const projects: Project[] = [
     image: "/projects/bi-dashboard.png",
     imageAlt:
       "Power BI dashboard showing revenue, material cost, labour cost, overhead cost and profit",
-
     summary:
       "Interactive Power BI dashboards that bring operational and Salesforce data into a single reporting view for leadership.",
-
     problem:
       "Leadership relied on multiple disconnected spreadsheets and reports to monitor business performance. This made it difficult to get timely, consistent insights or move quickly from a high-level metric to the records behind it.",
-
     objective:
       "Create a reporting solution that consolidates operational and Salesforce data and makes key performance information easier for leadership to monitor.",
-
     solution:
       "I developed interactive Power BI dashboards that combined data from multiple business systems into one reporting environment, supported by transformed datasets, DAX measures and drill-down reporting.",
-
     question:
       "How can leadership monitor performance without piecing together several disconnected reports?",
-
     contributions: [
       "Built ETL workflows in Microsoft Fabric to prepare and transform reporting datasets.",
       "Developed DAX measures and KPIs for executive-level reporting.",
@@ -68,7 +63,6 @@ const projects: Project[] = [
       "Integrated data from multiple business systems into a unified reporting view.",
       "Worked on translating stakeholder reporting needs into clearly defined metrics and dashboard views.",
     ],
-
     keyFeatures: [
       "Executive KPI reporting",
       "Interactive filters and slicers",
@@ -77,20 +71,16 @@ const projects: Project[] = [
       "DAX-based calculations",
       "Centralized reporting",
     ],
-
     challenges: [
       "Turning broad stakeholder requests into clearly defined metrics.",
       "Ensuring different data sources could be represented consistently in one report.",
       "Designing dashboards that provided detail without overwhelming the user.",
       "Balancing high-level executive reporting with the ability to investigate individual records.",
     ],
-
     impact:
       "The dashboards made it easier for leadership to monitor key performance indicators from one place, reduced reliance on manual reporting and supported faster evidence-based decisions.",
-
     lessons:
       "This project deepened my understanding of data modelling for reporting at scale. It also showed me how much dashboard design affects the way people interpret data. Defining the right KPI and making it easy to investigate the records behind it can be as important as the calculation itself.",
-
     pipeline: [
       "Operational + Salesforce data",
       "Microsoft Fabric ETL",
@@ -118,22 +108,16 @@ const projects: Project[] = [
     image: "/projects/ai-map-app.png",
     imageAlt:
       "Web application showing categorized data points plotted on an interactive map",
-
     summary:
       "Web applications that combine frontend engineering, data analysis and AI capabilities to make complex information easier to work with.",
-
     problem:
       "Some business workflows involved large amounts of information and repetitive manual work. Existing applications could display information, but there was an opportunity to use AI and analytics to make those workflows more useful and efficient.",
-
     objective:
       "Build AI-enabled application experiences that combine usable interfaces, structured data and intelligent functionality rather than treating AI as a separate experiment.",
-
     solution:
       "I contributed to applications that brought AI capabilities into web-based workflows while also preparing and analysing the data required to support those features.",
-
     question:
       "How can AI be incorporated into a real application in a way that supports an actual user workflow?",
-
     contributions: [
       "Built frontend interfaces using Next.js and TypeScript.",
       "Integrated AI capabilities through APIs.",
@@ -142,7 +126,6 @@ const projects: Project[] = [
       "Worked with REST APIs to connect frontend experiences to backend and AI services.",
       "Collaborated on testing and deployment of application workflows.",
     ],
-
     keyFeatures: [
       "AI API integration",
       "Interactive data interfaces",
@@ -151,27 +134,22 @@ const projects: Project[] = [
       "Authentication",
       "Map-based data exploration",
     ],
-
     challenges: [
       "Presenting complex information in a way that remained understandable to the user.",
       "Connecting AI outputs to useful actions inside an existing workflow.",
       "Handling data preparation before information could be used effectively by application features.",
       "Testing interactions across frontend, backend and AI services.",
     ],
-
     impact:
       "The applications helped reduce manual processes, improve how users interacted with information and support more intelligent, data-driven workflows.",
-
     lessons:
       "Working on these applications taught me that adding AI to a product is only one part of the solution. The quality of the data, the surrounding workflow and the way results are presented all influence whether the feature is actually useful.",
-
     futureEnhancements: [
       "Explore predictive analytics where suitable.",
       "Improve model and prompt evaluation.",
       "Add richer self-service reporting capabilities.",
       "Continue improving the way AI outputs are validated and presented to users.",
     ],
-
     pipeline: [
       "User / business data",
       "Data preparation",
@@ -199,22 +177,16 @@ const projects: Project[] = [
     image: "/projects/resource-management.png",
     imageAlt:
       "Resource planning interface showing employee availability, skills and allocation controls",
-
     summary:
       "A centralized platform for managing employee allocation, project staffing and resource availability.",
-
     problem:
       "Managing employee allocations, project assignments and resource availability across teams was fragmented and largely manual. Managers lacked one place to understand who was available and how people were already allocated.",
-
     objective:
       "Develop a centralized platform where the organization could manage resources, projects, allocations, notifications and users from a single system.",
-
     solution:
       "I contributed to the development of a resource management application that brought user, project and allocation information together into a single planning interface.",
-
     question:
       "How can managers quickly understand employee availability, skills and project allocation without relying on fragmented manual coordination?",
-
     contributions: [
       "Developed responsive frontend interfaces using Next.js and TypeScript.",
       "Built reusable UI components to improve consistency and maintainability.",
@@ -223,7 +195,6 @@ const projects: Project[] = [
       "Collaborated with the product team to translate business requirements into technical features.",
       "Developed interfaces that allowed resources to be searched and filtered by information such as skill, department, role and availability.",
     ],
-
     keyFeatures: [
       "User management",
       "Project management",
@@ -235,20 +206,16 @@ const projects: Project[] = [
       "Notifications",
       "Reporting",
     ],
-
     challenges: [
       "Designing reusable components that could adapt to different user roles.",
       "Managing authentication and authorization across multiple workflows.",
       "Keeping layouts responsive while displaying complex project and employee information.",
       "Presenting resource availability clearly enough for managers to make staffing decisions.",
     ],
-
     impact:
       "The platform brought resource-management information into one application, reducing manual coordination and improving visibility into employee availability and project allocations.",
-
     lessons:
       "Building this platform sharpened how I think about enterprise software. I learned to balance usability with technical constraints, design for multiple user roles from the beginning and keep implementation grounded in the workflows people actually use.",
-
     pipeline: [
       "Employee profiles",
       "Skills + availability",
@@ -293,8 +260,8 @@ const experience = [
 
 export default function Home() {
   const [filter, setFilter] = useState<ProjectCategory>("all");
-  const [selectedProject, setSelectedProject] =
-    useState<Project | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const filteredProjects = useMemo(() => {
     if (filter === "all") return projects;
@@ -318,33 +285,108 @@ export default function Home() {
     <main className="min-h-screen bg-white text-[#111111]">
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b border-blue-100 bg-white/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10 lg:px-14">
-          <a href="#">
-            <p className="font-semibold tracking-tight">Joan Kurgat</p>
-            <p className="text-xs text-blue-600">
-              Data · AI · Software
-            </p>
-          </a>
-
-          <div className="hidden items-center gap-7 text-sm md:flex">
-            <a className="nav-link" href="#about">
-              About
-            </a>
-            <a className="nav-link" href="#work">
-              Work
-            </a>
-            <a className="nav-link" href="#skills">
-              Skills
-            </a>
-            <a className="nav-link" href="#experience">
-              Experience
-            </a>
+        <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-14">
+          <div className="flex items-center justify-between py-4">
             <a
-              href="#contact"
-              className="rounded-full bg-blue-600 px-5 py-2.5 text-white transition hover:bg-blue-700"
+              href="#"
+              onClick={() => setMobileMenuOpen(false)}
             >
-              Contact
+              <p className="font-semibold tracking-tight">Joan Kurgat</p>
+              <p className="text-xs text-blue-600">
+                Data · AI · Software
+              </p>
             </a>
+
+            {/* DESKTOP MENU */}
+            <div className="hidden items-center gap-7 text-sm md:flex">
+              <a className="nav-link" href="#about">
+                About
+              </a>
+              <a className="nav-link" href="#work">
+                Work
+              </a>
+              <a className="nav-link" href="#skills">
+                Skills
+              </a>
+              <a className="nav-link" href="#experience">
+                Experience
+              </a>
+              <a
+                href="#contact"
+                className="rounded-full bg-blue-600 px-5 py-2.5 text-white transition hover:bg-blue-700"
+              >
+                Contact
+              </a>
+            </div>
+
+            {/* MOBILE BUTTON */}
+            <button
+              type="button"
+              aria-label={
+                mobileMenuOpen
+                  ? "Close navigation menu"
+                  : "Open navigation menu"
+              }
+              aria-expanded={mobileMenuOpen}
+              onClick={() =>
+                setMobileMenuOpen((previous) => !previous)
+              }
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-blue-100 bg-white text-[#111111] transition hover:border-blue-300 hover:bg-blue-50 md:hidden"
+            >
+              {mobileMenuOpen ? (
+                <X size={21} strokeWidth={2} />
+              ) : (
+                <Menu size={21} strokeWidth={2} />
+              )}
+            </button>
+          </div>
+
+          {/* MOBILE MENU */}
+          <div
+            className={`overflow-hidden transition-all duration-300 md:hidden ${
+              mobileMenuOpen
+                ? "max-h-96 pb-5 opacity-100"
+                : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="rounded-2xl border border-blue-100 bg-white p-3 shadow-xl shadow-blue-100/40">
+              <MobileNavLink
+                href="#about"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </MobileNavLink>
+
+              <MobileNavLink
+                href="#work"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Work
+              </MobileNavLink>
+
+              <MobileNavLink
+                href="#skills"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Skills
+              </MobileNavLink>
+
+              <MobileNavLink
+                href="#experience"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Experience
+              </MobileNavLink>
+
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-2 flex w-full items-center justify-between rounded-xl bg-blue-600 px-4 py-3.5 text-sm font-medium text-white transition hover:bg-blue-700"
+              >
+                Contact
+                <span>→</span>
+              </a>
+            </div>
           </div>
         </div>
       </nav>
@@ -469,10 +511,7 @@ export default function Home() {
       </section>
 
       {/* PROJECTS */}
-      <section
-        id="work"
-        className="bg-white"
-      >
+      <section id="work" className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-28 md:px-10 lg:px-14">
           <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
             <div>
@@ -985,10 +1024,7 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section
-        id="contact"
-        className="bg-white"
-      >
+      <section id="contact" className="bg-white">
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-20 md:px-10 lg:px-14">
           <div className="relative overflow-hidden rounded-[36px] bg-gradient-to-br from-blue-600 to-blue-800 p-8 text-white md:p-14">
             <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
@@ -1020,9 +1056,10 @@ export default function Home() {
                     href="https://www.linkedin.com/in/joan-kurgat-90b878250/"
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:underline"
+                    className="hover:underline flex items-center justify-end"
                   >
-                    LinkedIn ↗
+                    LinkedIn 
+                    <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </div>
               </div>
@@ -1036,6 +1073,27 @@ export default function Home() {
         <p>Built with Next.js, TypeScript & Tailwind CSS.</p>
       </footer>
     </main>
+  );
+}
+
+function MobileNavLink({
+  href,
+  onClick,
+  children,
+}: {
+  href: string;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      className="flex items-center justify-between rounded-xl px-4 py-3.5 text-sm font-medium text-neutral-700 transition hover:bg-blue-50 hover:text-blue-600"
+    >
+      {children}
+      <span className="text-blue-400">→</span>
+    </a>
   );
 }
 
@@ -1059,7 +1117,6 @@ function Metric({
       <p className="text-xs uppercase tracking-wide text-blue-500">
         {label}
       </p>
-
       <p className="mt-3 font-semibold">{value}</p>
     </div>
   );
@@ -1152,7 +1209,9 @@ function MiniProject({
         {tools}
       </p>
 
-      <p className="mt-5 leading-7 text-neutral-600">{text}</p>
+      <p className="mt-5 leading-7 text-neutral-600">
+        {text}
+      </p>
     </article>
   );
 }
